@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
 
+import javax.swing.JOptionPane;
+
 /**
  * @author Abhishek Madhusudhan. 
  * 
@@ -53,10 +55,19 @@ public class PlenaData
 	
 	public static void main(String[] args) 
 	{
-		String inputString = "Bubble";
+		String inputString = ""; 
+		
+		do
+		{
+			inputString = JOptionPane.showInputDialog("Please enter an input string."); 
+		}while(inputString.equals("")); 
+		
+		
 		PlenaData pd = new PlenaData(inputString); 
-		System.out.println("First Unique Character: " + pd.findFirstUniqueCharacter()); 
-		System.out.println("Re Written String: " + pd.reWriteString()); 
+		String output = "First Unique Character: " + pd.findFirstUniqueCharacter() + "\n"
+					   + "Re Written String: " + pd.reWriteString() + "\n";
+		
+		JOptionPane.showMessageDialog(null, output);
 	}
 	
 	public HashMap<Character, Integer> createMapOfCharacterAndCount(String inputString) 
